@@ -36,3 +36,11 @@ body {
   border-color: hsl(var(--primary)) !important;
   background-color: hsl(var(--muted-foreground)) !important;
 }
+
+.cm-placeholder {
+  color: hsl(var(--muted));
+  display: inline-block;
+  pointer-events: none;
+  padding-left: 0.3rem;
+  font-size: small;
+}
