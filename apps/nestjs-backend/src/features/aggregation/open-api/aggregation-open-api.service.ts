@@ -8,6 +8,8 @@ import type {
   IGroupPointsVo,
   IQueryBaseRo,
   IRowCountVo,
+  ISearchIndexByQueryRo,
+  ISearchCountRo,
 } from '@teable/openapi';
 import { forIn, isEmpty, map } from 'lodash';
 import type { IWithView } from '../aggregation.service';
@@ -85,5 +87,17 @@ export class AggregationOpenApiService {
       (result = result ?? []).push({ fieldId, statisticFunc });
     });
     return result;
+  }
+
+  public async getSearchCount(tableId: string, queryRo: ISearchCountRo, projection?: string[]) {
+    return await this.aggregationService.getSearchCount(tableId, queryRo, projection);
+  }
+
+  public async getRecordIndexBySearchOrder(
+    tableId: string,
+    queryRo: ISearchIndexByQueryRo,
+    projection?: string[]
+  ) {
+    return await this.aggregationService.getRecordIndexBySearchOrder(tableId, queryRo, projection);
   }
 }
